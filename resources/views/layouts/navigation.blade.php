@@ -21,6 +21,12 @@
                         {{ __('Hospitaler') }}
                     </x-nav-link>
                     @endif
+
+                    @if ( Route::has('sales.index') )
+                    <x-nav-link :href="route('sales.index')" :active="request()->routeIs('sales.index')">
+                        {{ __('Sales') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
