@@ -1,0 +1,13 @@
+{
+    "alias": "hospitaler",
+    "description": "",
+    "keywords": [],
+    "active": true,
+    "order": 0,
+    "providers": [
+        "Modules\\Hospitaler\\Providers\\Main"
+    ],
+    "aliases": [],
+    "files": [],
+    "requires": []
+}

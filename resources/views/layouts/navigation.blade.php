@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if ( Route::has('hospitaler.index') )
+                    <x-nav-link :href="route('hospitaler.index')" :active="request()->routeIs('hospitaler.index')">
+                        {{ __('Hospitaler') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
