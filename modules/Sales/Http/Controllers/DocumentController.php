@@ -5,11 +5,8 @@ namespace Modules\Sales\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Sales\Models\Sale;
-use Modules\Sales\Models\Customer;
-use Modules\Sales\Models\Document;
 
-class SaleController extends Controller
+class DocumentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::all();
-
-        return view('sales::index', compact('sales'));
+        return view('sales::document.index');
     }
 
     /**
@@ -28,10 +23,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $customers = Customer::all();
-        $documents = Document::all();
-
-        return view('sales::create', compact('customers', 'documents'));
+        return view('sales::create');
     }
 
     /**
@@ -41,22 +33,7 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'date' => 'required',
-            'customer_id' => 'required',
-            'document_id' => 'required',
-            'amount' => 'required',
-        ]);
-
-        $newSale = new Sale();
-        $newSale->date = $request->date;
-        $newSale->customer_id = $request->customer_id;
-        $newSale->document_id = $request->document_id;
-        $newSale->amount = $request->amount;
-        $newSale->created_by = auth()->user()->id;
-        $newSale->save();
-
-        return redirect()->route('sales.index');
+        //
     }
 
     /**

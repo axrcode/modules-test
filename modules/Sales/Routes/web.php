@@ -12,6 +12,7 @@
 */
 use Modules\Sales\Http\Controllers\SaleController;
 use Modules\Sales\Http\Controllers\CustomerController;
+use Modules\Sales\Http\Controllers\DocumentController;
 
 Route::middleware(['web', 'auth'])->prefix('sales')->as('sales.')->group(function() {
     Route::get('/', [SaleController::class, 'index'])->name('index');
@@ -24,5 +25,9 @@ Route::middleware(['web', 'auth'])->prefix('sales')->as('sales.')->group(functio
         Route::post('/store', [CustomerController::class, 'store'])->name('store');
         Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('edit');
         Route::put('/{id}', [CustomerController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('document')->as('document.')->group(function() {
+        Route::get('/', [DocumentController::class, 'index'])->name('index');
     });
 });

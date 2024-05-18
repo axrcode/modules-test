@@ -24,6 +24,19 @@
 
                         <div>
                             <label class='block font-medium text-sm text-gray-700'>
+                                Documento
+                            </label>
+                            <select id="document_id" name="document_id"
+                                class='border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full'
+                            >
+                            @foreach ($documents as $document)
+                                <option value="{{ $document->id }}">{{ $document->name }} {{ $document->serie }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class='block font-medium text-sm text-gray-700'>
                                 Cliente
                             </label>
                             <select id="customer_id" name="customer_id"
